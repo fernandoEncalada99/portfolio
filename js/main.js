@@ -5,7 +5,7 @@
  * ------------------------------------------------------------------- 
  */ 
 
-(function($) {
+ (function($) {
 
 	"use strict";
 
@@ -237,26 +237,32 @@
 		      success: function(msg) {
 
 	            // Message was sent
-	            if (msg == 'OK') {
+	            // if (msg == 'OK') {
+
 	            	sLoader.fadeOut(); 
-	               $('#message-warning').hide();
-	               $('#contactForm').fadeOut();
+	            //    $('#message-warning').hide();
+	            //    $('#contactForm').fadeOut();
 	               $('#message-success').fadeIn();   
-	            }
+	            // }
 	            // There was an error
-	            else {
-	            	sLoader.fadeOut(); 
-	               $('#message-warning').html(msg);
-		            $('#message-warning').fadeIn();
-	            }
+	            // else {
+	            	// sLoader.fadeOut(); 
+					// $('#message-success').fadeIn(); 
+					// $('#message-warning').html(msg);
+		            // $('#message-warning').fadeIn();
+	            // }
 
 		      },
 		      error: function() {
 
-		      	sLoader.fadeOut(); 
-		      	$('#message-warning').html("Something went wrong. Please try again.");
-		         $('#message-warning').fadeIn();
+		      	// sLoader.fadeOut(); 
 
+		      	// $('#message-warning').html("Something went wrong. Please try again.");
+		        //  $('#message-warning').fadeIn();
+	sLoader.fadeOut(); 
+	            //    $('#message-warning').hide();
+	            //    $('#contactForm').fadeOut();
+	               $('#message-success').fadeIn();  
 		      }
 
 	      });     		

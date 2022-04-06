@@ -13,15 +13,15 @@ if($_POST) {
 
    // Check Name
 	if (strlen($name) < 2) {
-		$error['name'] = "Por favor, ingresa tu nombre.";
+		$error['name'] = "Please enter your name.";
 	}
 	// Check Email
 	if (!preg_match('/^[a-z0-9&\'\.\-_\+]+@[a-z0-9\-]+\.([a-z0-9\-]+\.)*+[a-z]{2}/is', $email)) {
-		$error['email'] = "Por favor, ingresa un email válido.";
+		$error['email'] = "Please enter a valid email address.";
 	}
 	// Check Message
-	if (strlen($contact_message) < 10) {
-		$error['message'] = "Por favor, ingresa tu mensaje, debe tener al menos 10 caracteres.";
+	if (strlen($contact_message) < 15) {
+		$error['message'] = "Please enter your message. It should have at least 15 characters.";
 	}
    // Subject
 	if ($subject == '') { $subject = "Contact Form Submission"; }
@@ -42,9 +42,6 @@ if($_POST) {
 	$headers .= "Reply-To: ". $email . "\r\n";
  	$headers .= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-	// $headers .= "Access-Control-Allow-Origin; *\r\n";
-	// $headers .= "Access-Control-Allow-Methods; GET,HEAD,OPTIONS,POST,PUT\r\n";
-	// $headers .= "Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type\r\n";
 
 
    if (!$error) {
@@ -53,8 +50,8 @@ if($_POST) {
       $mail = mail($siteOwnersEmail, $subject, $message, $headers);
 
 		if ($mail) { echo "OK"; }
-      else { echo "Algo salió mal, inténtalo nuevamente."; }
-	  
+      else { echo "Something went wrong. Please try again."; }
+		
 	} # end if - no validation error
 
 	else {
